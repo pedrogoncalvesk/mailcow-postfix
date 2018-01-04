@@ -40,6 +40,11 @@ COPY syslog-ng.conf /etc/syslog-ng/syslog-ng.conf
 COPY postfix.sh /opt/postfix.sh
 COPY whitelist_forwardinghosts.sh /usr/local/bin/whitelist_forwardinghosts.sh
 
+RUN chmod +x \
+	/opt/postfix.sh \
+	/usr/local/bin/whitelist_forwardinghosts.sh \
+	/usr/local/bin/zeyple.py
+
 COPY conf /opt/postfix/conf
 
 EXPOSE 588
